@@ -13,7 +13,7 @@ TARGET_FILE=${TARGET_DIR}/data-$(date '+%Y%m%d').tar.gz
 
 mkdir -p ${TARGET_DIR}
 
-rclone --config /root/rclone.config copy local:/mnt/volumes/data/  dest:${TARGET_DIR}/data/
-rclone --config /root/rclone.config copy local:/mnt/volumes/statics/  dest:${TARGET_DIR}/statics/
+rclone --config /root/rclone.conf copy local:/mnt/volumes/data/  dest:${TARGET_DIR}/data/
+rclone --config /root/rclone.conf copy local:/mnt/volumes/statics/  dest:${TARGET_DIR}/statics/
 
 
