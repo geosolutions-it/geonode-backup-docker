@@ -1,0 +1,2 @@
+1 * * * * /root/pg_backup.sh
+1 * * * * /root/fs_backup.sh
