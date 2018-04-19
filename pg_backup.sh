@@ -9,11 +9,9 @@
 # PGOPTIONS
 
 echo 'run pg backup', $(date)
-# get hostname 
-HOSTNAME=${HOSTNAME:-$(hostname)}
 
 # /$deployment/pg
-_TARGET_DIR=/${RANCHER_STACK:-geonode-generic-${HOSTNAME}}/pg/
+_TARGET_DIR=/${RANCHER_STACK:-geonode-generic}/pg/
 
 # /mnt/volumes/backup/$deployment/pg/$date
 TARGET_DIR=${TARGET_DIR:-/mnt/volumes/backups/}/${_TARGET_DIR}/$(date +%Y%m%d)
