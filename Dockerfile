@@ -14,6 +14,7 @@ RUN dpkg -i rclone-current-linux-amd64.deb
 ADD rclone.conf /root/rclone.conf
 ADD pg_backup.sh /root/pg_backup.sh
 ADD fs_backup.sh /root/fs_backup.sh
+ADD backup.sh /root/backup.sh
 
 RUN chmod +x /root/*.sh
 RUN sed -i '/session    required     pam_loginuid.so/c\#session    required   pam_loginuid.so' /etc/pam.d/cron
