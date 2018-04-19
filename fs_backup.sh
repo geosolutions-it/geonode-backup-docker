@@ -14,5 +14,5 @@ mkdir -p ${TARGET_DIR}
 
 rclone --config /root/rclone.conf copy local:/mnt/volumes/data/  dest:${TARGET_DIR}/data/
 rclone --config /root/rclone.conf copy local:/mnt/volumes/statics/  dest:${TARGET_DIR}/statics/
-
+tar -czf ${TARGET_FILE} ${TARGET_DIR}/{data,statics}
 
