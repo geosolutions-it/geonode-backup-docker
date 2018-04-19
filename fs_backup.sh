@@ -1,7 +1,6 @@
 #!/bin/bash
 
-echo 'run fs backup', date
-env
+echo 'run fs backup', $(date)
 # /$deployment/pg
 _TARGET_DIR=/${RANCHER_STACK:-geonode-generic-${HOSTNAME}}/fs/
 

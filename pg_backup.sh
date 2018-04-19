@@ -9,7 +9,6 @@
 # PGOPTIONS
 
 echo 'run pg backup', $(date)
-env
 # get hostname 
 HOSTNAME=${HOSTNAME:-$(hostname)}
 
