@@ -15,6 +15,7 @@ ADD rclone.conf /root/rclone.conf
 ADD pg_backup.sh /root/pg_backup.sh
 ADD fs_backup.sh /root/fs_backup.sh
 ADD backup.sh /root/backup.sh
+ADD run_cron.sh /root/run_cron.sh
 
 RUN chmod +x /root/*.sh
 RUN sed -i '/session    required     pam_loginuid.so/c\#session    required   pam_loginuid.so' /etc/pam.d/cron
@@ -23,4 +24,4 @@ ADD crontab crontab
 RUN /usr/bin/crontab crontab
 RUN rm crontab
  
-CMD ["/usr/sbin/cron", "-f"]
+CMD ["/root/run_cron.sh"]

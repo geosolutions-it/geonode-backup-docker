@@ -8,7 +8,15 @@
 # PGDATABASE
 # PGOPTIONS
 
+THIS_DIR=$(dirname $0)
+ENV_FILE=${THIS_DIR}/.env.cron
+
+# load env file and export values from it to shell
+export $(grep -v '^#' ${ENV_FILE} | xargs -d '\n')
+
 echo 'run pg backup', $(date)
+echo 'with env'
+env
 
 # /$deployment/pg
 _TARGET_DIR=/${RANCHER_STACK:-geonode-generic}/pg/
