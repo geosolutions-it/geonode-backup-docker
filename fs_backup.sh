@@ -1,6 +1,13 @@
 #!/bin/bash
 
+
+THIS_DIR=$(dirname $0)
+
+export $(grep -v '^#' ${ENV_FILE} | xargs -d '\n')
+
 echo 'run fs backup', $(date)
+echo 'with env'
+env
 # /$deployment/pg
 _TARGET_DIR=/${RANCHER_STACK:-geonode-generic}/fs/
 

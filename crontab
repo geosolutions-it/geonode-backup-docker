@@ -1,1 +1,1 @@
-2 2 * * * /root/backup.sh
+*/10 * * * * /root/backup.sh > /proc/$(cat /var/run/crond.pid)/fd/1 2>&1
