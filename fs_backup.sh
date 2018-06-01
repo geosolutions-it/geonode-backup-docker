@@ -1,8 +1,13 @@
 #!/bin/bash
 
+# file backup script.
+# will dump all files from GS data/GN statics into tar file
+# env vars:
+# TARGET_DIR - target dump dir including timestamp
 
 THIS_DIR=$(dirname $0)
 
+# load env file and export values from it to shell
 export $(grep -v '^#' ${ENV_FILE} | xargs -d '\n')
 
 echo 'run fs backup', $(date)
@@ -22,4 +27,3 @@ mkdir -p ${TARGET_DIR}
 rclone --config /root/rclone.conf copy local:/mnt/volumes/data/  dest:${TARGET_DIR}/data/
 rclone --config /root/rclone.conf copy local:/mnt/volumes/statics/  dest:${TARGET_DIR}/statics/
 tar -czf ${TARGET_FILE} ${TARGET_DIR}/*
-
