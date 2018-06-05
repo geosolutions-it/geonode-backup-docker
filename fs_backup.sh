@@ -6,6 +6,7 @@
 # TARGET_DIR - target dump dir including timestamp
 
 THIS_DIR=$(dirname $0)
+ENV_FILE=${THIS_DIR}/.env.cron
 
 # load env file and export values from it to shell
 export $(grep -v '^#' ${ENV_FILE} | xargs -d '\n')
