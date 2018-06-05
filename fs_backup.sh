@@ -6,6 +6,7 @@
 # TARGET_DIR - target dump dir including timestamp
 
 THIS_DIR=$(dirname $0)
+ENV_FILE=${THIS_DIR}/.env.cron
 
 # load env file and export values from it to shell
 export $(grep -v '^#' ${ENV_FILE} | xargs -d '\n')
@@ -26,4 +27,9 @@ mkdir -p ${TARGET_DIR}
 
 rclone --config /root/rclone.conf copy local:/mnt/volumes/data/  dest:${TARGET_DIR}/data/
 rclone --config /root/rclone.conf copy local:/mnt/volumes/statics/  dest:${TARGET_DIR}/statics/
+
+# tar.gz files
 tar -czf ${TARGET_FILE} ${TARGET_DIR}/*
+
+# clean intermediate dirs
+rm -fr ${TARGET_DIR}/{data,statics}
