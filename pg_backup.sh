@@ -25,10 +25,11 @@ _TARGET_DIR=/${RANCHER_STACK:-geonode-generic}/pg/
 TARGET_DIR=${TARGET_DIR:-/mnt/volumes/backups/}/${_TARGET_DIR}/$(date +%Y%m%d)
 
 # all above + filename
-TARGET_FILE=${TARGET_DIR}/pg_dumpall-$(date '+%Y_%m_%d_%H%M_%S').tar.gz
+TARGET_FILE=${TARGET_DIR}/pg_dumpall-$(date '+%Y_%m_%d_%H%M_%S').gz
 
 mkdir -p ${TARGET_DIR}
 
 
 # we don't provide credentials nor db location, since it's comming from env
-pg_dumpall > ${TARGET_FILE}
+# dump will be compressed
+pg_dumpall | gzip -9 > ${TARGET_FILE}

@@ -27,8 +27,8 @@ For example,
 
 ```
 ls /mnt/volumes/backups/geonode-generic-sdffsdf/pg/20180419/:
--rw-r--r-- 1 root 184056 Apr 19 10:24 pg_dumpall-2018_04_19_1024_04.tar.gz
--rw-r--r-- 1 root 184056 Apr 19 10:24 pg_dumpall-2018_04_19_1024_09.tar.gz
+-rw-r--r-- 1 root 184056 Apr 19 10:24 pg_dumpall-2018_04_19_1024_04.gz
+-rw-r--r-- 1 root 184056 Apr 19 10:24 pg_dumpall-2018_04_19_1024_09.gz
 
 ls /mnt/volumes/backups/geonode-generic-sdffsdf/fs/20180419/:
 drwxr-xr-x 20 root   4096 Apr 19 10:22 data (there's data gs dir structure)
